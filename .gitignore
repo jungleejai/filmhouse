@@ -4,3 +4,10 @@
 # Claude Design working files (the active site is the root index.html)
 uploads/
 *.zip
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
