@@ -116,25 +116,23 @@
     letter-spacing: 0.002em;
   }
   .hero-welcome {
-    max-width: 640px;
-    margin: 32px auto 0;
+    max-width: 680px;
+    margin: 36px auto 0;
     text-align: center;
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.65;
     color: var(--ink);
-    opacity: 0.82;
+    opacity: 0.88;
     position: relative;
     z-index: 2;
   }
-  .hero-welcome p { margin-bottom: 14px; }
+  .hero-welcome p { margin-bottom: 16px; }
   .hero-welcome p:last-child { margin-bottom: 0; }
-  .welcome-closing {
+  .hero-welcome.manifesto p:last-child strong {
     font-family: 'Source Serif 4', 'Fraunces', serif;
     font-style: italic;
-    font-size: 22px;
-    margin-top: 20px !important;
+    font-weight: 700;
     color: var(--mark);
-    opacity: 1;
   }
   /* ---------- RATINGS ---------- */
   .ratings {
@@ -287,6 +285,17 @@
     margin-bottom: 28px;
     border-radius: 0 8px 8px 0;
   }
+  .ticket-label {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--yellow);
+    margin-bottom: 4px;
+    text-transform: lowercase;
+    letter-spacing: -0.005em;
+  }
+  .ticket-detail { font-size: 14px; line-height: 1.45; opacity: 0.88; }
   .divider {
     height: 1px;
     background: rgba(251,243,223,0.25);
@@ -354,14 +363,11 @@
     text-transform: lowercase;
   }
   .trailer-head h3 em { font-style: italic; color: var(--mark); }
-  .trailer-head .note { font-size: 14px; opacity: 0.6; }
-  .trailer-hint {
+  .trailer-head .note {
     font-family: 'Source Serif 4', 'Fraunces', serif;
     font-style: italic;
     font-size: 15px;
-    opacity: 0.55;
-    text-align: center;
-    margin-bottom: 14px;
+    opacity: 0.6;
     letter-spacing: 0.01em;
   }
   .trailer {
@@ -379,19 +385,12 @@
     border: 0;
   }
 
-  /* ---------- ABOUT ---------- */
-  .about-grid {
+  /* ---------- PILLARS ---------- */
+  .pillars {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
-  .about-text p {
-    font-size: 18px;
-    line-height: 1.65;
-    margin-bottom: 18px;
-  }
-  .pillars { display: flex; flex-direction: column; gap: 16px; }
   .pillar {
     padding: 24px;
     border-radius: 16px;
@@ -549,7 +548,7 @@
     .poster { max-width: 280px; margin: 0 auto; }
     .screening-info h3 { font-size: 40px; }
     .details { grid-template-columns: 1fr; gap: 16px; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .pillars { grid-template-columns: 1fr; gap: 16px; }
     .signup-form { flex-direction: column; border-radius: 24px; padding: 12px; gap: 10px; }
     .signup-form input { text-align: center; }
     .signup-form button { width: 100%; padding: 16px; }
@@ -574,11 +573,12 @@
 <h1>film<span class="italic">house.</span></h1>
   <p class="hero-tag" style="font-size: 29px; font-weight: 400">Come Watch Together.</p>
 
-  <div class="hero-welcome">
-    <p>Welcome to filmhouse. We are film lovers who gather once a month to watch movies together. In the dark. On a big screen.</p>
-    <p>Our next screening is Saturday, June 6 at the Nitehawk Cinema in Williamsburg, Brooklyn. Tickets go live Tuesday, June 2 at 5:00pm. The ticket link below will become active once the theater releases showtimes on Tuesday, June 2 at 5:00pm.</p>
-    <p>Food, cocktails, and mocktails available for purchase during the screening and after at the theater café.</p>
-    <p class="welcome-closing">Come for the film. Stay for the gathering!</p>
+  <div class="hero-welcome manifesto">
+    <p>We love watching films together. In the dark. With friends. With strangers. On a big screen.</p>
+    <p>Somewhere along the way, convenience won. Streaming. Scrolling. &ldquo;I&rsquo;ll catch it later.&rdquo; So once a month, we do things differently.</p>
+    <p>One film. No algorithm. No second screen. No half-watching.</p>
+    <p>After the credits&hellip; stay. Drink. Eat. Agree. Disagree. Declare cinema dead. Or fall back in love with it again.</p>
+    <p>Join a community of creatives, nerds, cat lovers, insomniacs, vinyl collectors, overthinkers, romantics, and people who still believe a dark theater can change your life. <strong>Welcome to filmhouse.</strong></p>
   </div>
 </header>
 
@@ -594,8 +594,11 @@
         <span class="eyebrow">Next screening</span>
         <div class="event-date">Saturday, <em>June&nbsp;6</em></div>
         <div class="event-venue">Nitehawk Cinema · Williamsburg</div>
-        <p class="event-note">Please plan for a late morning / early afternoon screening.<br>Food, cocktails, and mocktails available during the screening and at the theater café after.</p>
-        <p class="ticket-line">Ticket purchase link &amp; showtime released <strong>Tuesday, June 2 at 5:00pm</strong>.</p>
+        <p class="event-note">Please plan for a late morning / early afternoon screening.<br>Food, cocktails, and mocktails available for purchase during the screening and at the theater café after.</p>
+        <div class="ticket-line">
+          <div class="ticket-label">Buy your ticket here:</div>
+          <div class="ticket-detail">Ticket purchase link &amp; showtime released <strong>Tuesday, June 2 at 5:00pm</strong>.</div>
+        </div>
 
         <hr class="divider">
 
@@ -627,7 +630,10 @@
     </div>
 
     <div class="trailer-wrap">
-      <p class="trailer-hint">Caution. The trailer reveals far too much.</p>
+      <div class="trailer-head">
+        <h3>Watch the <em>trailer.</em></h3>
+        <span class="note">Caution. The trailer reveals far too much.</span>
+      </div>
       <div class="trailer">
         <iframe src="https://player.vimeo.com/video/1178842512" title="Tuner — Official Trailer (2026)" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
@@ -635,35 +641,21 @@
   </div>
 </section>
 
-<!-- ---------- ABOUT ---------- -->
+<!-- ---------- THREE PILLARS ---------- -->
 <section id="about" style="background: var(--mint); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);">
   <div class="container">
-    <span class="eyebrow" style="background: var(--ink); color: var(--cream);">Manifesto</span>
-    <h2>Watching, <em>together</em></h2>
-
-    <div class="about-grid">
-      <div class="about-text">
-        <p>We love watching films together. In the dark. With friends. With strangers. On a big screen.</p>
-        <p>Somewhere along the way, convenience won. Streaming. Scrolling. “I’ll catch it later.” And later never comes.</p>
-        <p>So once a month, we throw it out.</p>
-        <p>One film. No algorithm. No second screen. No half-watching.</p>
-        <p>After the credits&hellip; stay. Drink. Eat. Agree. Disagree. Declare cinema dead. Or fall back in love with it again.</p>
-        <p>Join a community of creatives, nerds, cat lovers, insomniacs, vinyl collectors, overthinkers, romantics, and people who still believe a dark theater can change your life.</p>
+    <div class="pillars">
+      <div class="pillar p1">
+        <h4>One film, once a month.</h4>
+        <p>A late morning / early afternoon screening. Start the weekend right with great cinema, beautiful humans, and conversations that linger.</p>
       </div>
-
-      <div class="pillars">
-        <div class="pillar p1">
-          <h4>One film, once a month.</h4>
-          <p>A late morning / early afternoon screening. Start the weekend right with great cinema, beautiful humans, and conversations that linger.</p>
-        </div>
-        <div class="pillar p2">
-          <h4>The Film Ends. The Conversation Doesn&rsquo;t.</h4>
-          <p>Stay after the film for conversation. Bring a thought, a question, or just your beautiful self.</p>
-        </div>
-        <div class="pillar p3">
-          <h4>Real screens, real rooms.</h4>
-          <p>Meet in classic, independent cinemas with proper projection. Phones away. Laptops closed.</p>
-        </div>
+      <div class="pillar p2">
+        <h4>The Film Ends. The Conversation Doesn&rsquo;t.</h4>
+        <p>Stay after the film for conversation. Bring a thought, a question, or just your beautiful self.</p>
+      </div>
+      <div class="pillar p3">
+        <h4>Real screens, real rooms.</h4>
+        <p>Meet in classic, independent cinemas with proper projection. Phones away. Laptops closed.</p>
       </div>
     </div>
   </div>
