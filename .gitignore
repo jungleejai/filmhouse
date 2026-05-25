@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# Claude Design working files (the active site is the root index.html)
+uploads/
+*.zip

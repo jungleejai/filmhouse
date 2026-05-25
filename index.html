@@ -1,0 +1,663 @@
+<!DOCTYPE html><html lang="en"><head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filmhouse</title>
+<meta name="description" content="Filmhouse · Next screening: Tuner, Saturday June 6 at Nitehawk Cinema, Williamsburg. Tickets released Tuesday, June 2 at 10:00am.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&amp;family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:   #FBF3DF;
+    --ink:     #1A1B2E;
+    --pink:    #FF3D7F;
+    --orange:  #FF6B35;
+    --yellow:  #FFC542;
+    --teal:    #1E5F74;
+    --mint:    #B9E4C9;
+    --lilac:   #C8B6FF;
+
+    /* Lead wordmark color — used on nav logo, hero h1, footer logo. */
+    --mark:    #FF3D7F;
+
+    /* Nav underline — tweakable. */
+    --nav-border-color: rgba(26,27,46,0.15);
+    --nav-border-weight: 1px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  /* subtle paper texture */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(26,27,46,0.04) 1px, transparent 1px);
+    background-size: 4px 4px;
+    z-index: 0;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--cream);
+    border-bottom: var(--nav-border-weight) solid var(--nav-border-color);
+    padding: 14px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.015em;
+    text-transform: lowercase;
+  }
+  .logo .house, .logo .italic, .logo span:not(.dot):not(.house):not(.italic) { color: var(--mark); font-style: italic; }
+  .logo .dot { color: var(--mark); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--pink); }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: var(--pink);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding: 80px 32px 16px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(64px, 14vw, 200px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    position: relative;
+    z-index: 2;
+    text-transform: lowercase;
+  }
+  .hero h1 .italic { font-style: italic; color: var(--mark); }
+  .hero h1 .dot    { color: var(--mark); }
+  .hero-tag {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(24px, 2.6vw, 36px);
+    margin-top: 18px;
+    max-width: 720px;
+    margin-left: auto; margin-right: auto;
+    position: relative; z-index: 2;
+    color: var(--ink);
+    opacity: 0.78;
+    letter-spacing: 0.002em;
+  }
+  /* ---------- RATINGS ---------- */
+  .ratings {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: -4px 0 22px;
+  }
+  .rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 8px 16px 8px 10px;
+    border: 1px solid rgba(251,243,223,0.22);
+    border-radius: 999px;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    line-height: 1;
+  }
+  .rating:hover {
+    background: rgba(251,243,223,0.07);
+    border-color: rgba(251,243,223,0.5);
+  }
+  .rating .score {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--yellow);
+    letter-spacing: -0.01em;
+  }
+  .rating .score .star { color: var(--yellow); margin-right: 2px; }
+  .rating .src {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+  .rating .ext {
+    font-size: 11px;
+    opacity: 0.55;
+    margin-left: 2px;
+  }
+  .rating-logo {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background: rgba(251,243,223,0.06);
+    border-radius: 6px;
+    object-fit: contain;
+    padding: 4px;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* ---------- SECTION BASE ---------- */
+  section { position: relative; z-index: 2; padding: 80px 32px; }
+  section#screening { padding-top: 18px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    background: var(--pink);
+    color: var(--cream);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 24px;
+    text-transform: lowercase;
+  }
+  h2 em { color: var(--mark); font-style: italic; }
+
+  /* ---------- NEXT SCREENING ---------- */
+  .screening {
+    background: var(--teal);
+    color: var(--cream);
+    border-radius: 24px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: flex-start;
+    border: 3px solid var(--ink);
+    box-shadow: 12px 12px 0 var(--ink);
+    position: relative;
+  }
+  /* nudge the poster the height of the eyebrow line so its top edge meets
+     the screening header rather than the eyebrow pill */
+  .screening .poster { margin-top: 4px; }
+  .poster {
+    aspect-ratio: 1080 / 1350;
+    border-radius: 12px;
+    border: 3px solid var(--ink);
+    overflow: hidden;
+    background: var(--ink);
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.15);
+  }
+  .poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .screening-info .eyebrow { background: var(--yellow); color: var(--ink); margin-bottom: 14px; }
+  .event-date {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    text-transform: lowercase;
+  }
+  .event-date em { font-style: italic; color: var(--yellow); }
+  .event-venue {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    color: var(--yellow);
+    text-transform: lowercase;
+  }
+  .event-note {
+    font-size: 17px;
+    line-height: 1.5;
+    opacity: 0.85;
+    margin-bottom: 20px;
+  }
+  .ticket-line {
+    display: block;
+    background: rgba(251,243,223,0.08);
+    border-left: 3px solid var(--yellow);
+    padding: 14px 18px;
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 28px;
+    border-radius: 0 8px 8px 0;
+  }
+  .divider {
+    height: 1px;
+    background: rgba(251,243,223,0.25);
+    margin: 28px 0;
+    border: 0;
+  }
+  .film-title {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    margin-bottom: 18px;
+    text-transform: lowercase;
+  }
+  .synopsis { font-size: 16px; line-height: 1.6; margin-bottom: 24px; opacity: 0.92; }
+  .credits { margin-bottom: 28px; }
+  .credits p {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 6px;
+    opacity: 0.88;
+  }
+  .credits .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--yellow);
+    margin-right: 6px;
+  }
+
+  .cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--pink);
+    color: var(--cream);
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+  }
+  .cta:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+  .cta:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+  .cta.secondary { background: var(--cream); color: var(--ink); margin-left: 12px; }
+
+  /* ---------- TRAILER ---------- */
+  .trailer-wrap {
+    margin-top: 56px;
+  }
+  .trailer-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .trailer-head h3 {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+  }
+  .trailer-head h3 em { font-style: italic; color: var(--mark); }
+  .trailer-head .note { font-size: 14px; opacity: 0.6; }
+  .trailer {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    border: 3px solid var(--ink);
+    box-shadow: 10px 10px 0 var(--ink);
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .trailer iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 18px;
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+  .pillars { display: flex; flex-direction: column; gap: 16px; }
+  .pillar {
+    padding: 24px;
+    border-radius: 16px;
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    transition: transform 0.15s ease;
+  }
+  .pillar:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); }
+  .pillar.p1 { background: var(--yellow); }
+  .pillar.p2 { background: var(--mint); }
+  .pillar.p3 { background: var(--lilac); }
+  .pillar h4 {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .pillar p { font-size: 15px; line-height: 1.5; }
+
+  /* ---------- SIGNUP ---------- */
+  .signup {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .signup h2 em { color: var(--yellow); }
+  .signup p { font-size: 18px; max-width: 540px; margin: 0 auto 32px; opacity: 0.85; }
+  .signup-form {
+    display: flex;
+    gap: 8px;
+    max-width: 520px;
+    margin: 0 auto;
+    background: var(--cream);
+    padding: 6px;
+    border-radius: 999px;
+    border: 3px solid var(--cream);
+  }
+  .signup-form input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 14px 22px;
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--ink);
+    outline: none;
+  }
+  .signup-form input::placeholder { color: rgba(26,27,46,0.5); }
+  .signup-form button {
+    background: var(--pink);
+    color: var(--cream);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .signup-form button:hover { background: var(--orange); }
+  .signup-note { font-size: 13px; margin-top: 16px; opacity: 0.6; }
+
+  /* decorative stars in signup */
+  .star {
+    position: absolute;
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    color: var(--yellow);
+    opacity: 0.3;
+  }
+  .star.s1 { top: 30px; left: 8%; transform: rotate(-15deg); }
+  .star.s2 { bottom: 40px; right: 10%; transform: rotate(20deg); font-size: 60px; color: var(--pink); }
+  .star.s3 { top: 50%; left: 4%; font-size: 30px; color: var(--mint); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 40px 32px;
+    background: var(--cream);
+    border-top: 2px solid var(--ink);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .socials a {
+    color: var(--ink);
+    text-decoration: none;
+    margin-left: 18px;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .socials a img { width: 16px; height: 16px; display: block; }
+  .socials a:hover { color: var(--pink); }
+  footer .copy { font-size: 13px; opacity: 0.6; }
+
+  /* ---------- TWEAKS ---------- */
+  body[data-poster-align="center"] .screening { align-items: center; }
+  body[data-poster-align="center"] .screening .poster { margin-top: 0; }
+
+  body[data-density="tight"]  .screening { padding: 32px; gap: 32px; }
+  body[data-density="roomy"]  .screening { padding: 64px; gap: 64px; }
+
+  body[data-card-style="soft"] .screening,
+  body[data-card-style="soft"] .poster,
+  body[data-card-style="soft"] .cta,
+  body[data-card-style="soft"] .trailer,
+  body[data-card-style="soft"] .pillar { border-width: 1.5px; }
+  body[data-card-style="soft"] .screening { box-shadow: 0 22px 60px rgba(26,27,46,0.22); }
+  body[data-card-style="soft"] .poster    { box-shadow: 0 10px 30px rgba(0,0,0,0.22); }
+  body[data-card-style="soft"] .cta       { box-shadow: 0 6px 18px rgba(26,27,46,0.25); }
+  body[data-card-style="soft"] .trailer   { box-shadow: 0 18px 44px rgba(26,27,46,0.20); }
+  body[data-card-style="soft"] .pillar    { box-shadow: 0 5px 14px rgba(26,27,46,0.15); }
+
+  body[data-card-style="thin"] .screening,
+  body[data-card-style="thin"] .poster,
+  body[data-card-style="thin"] .cta,
+  body[data-card-style="thin"] .trailer,
+  body[data-card-style="thin"] .pillar { border-width: 1px; box-shadow: none; }
+
+  body[data-stars="off"] .star { display: none; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      padding: 14px 20px 12px;
+      gap: 8px;
+      align-items: center;
+    }
+    .logo { font-size: 26px; }
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      gap: 22px;
+      font-size: 13px;
+    }
+    .nav-links a { font-size: 13px; }
+  }
+
+  @media (max-width: 880px) {
+    nav { padding: 12px 20px; flex-wrap: wrap; gap: 12px; }
+    .nav-links { gap: 18px; }
+    section { padding: 56px 20px; }
+    .hero { padding: 56px 20px 40px; }
+    .screening { grid-template-columns: 1fr; padding: 28px; gap: 28px; box-shadow: 6px 6px 0 var(--ink); }
+    .poster { max-width: 280px; margin: 0 auto; }
+    .screening-info h3 { font-size: 40px; }
+    .details { grid-template-columns: 1fr; gap: 16px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .signup-form { flex-direction: column; border-radius: 24px; padding: 12px; gap: 10px; }
+    .signup-form input { text-align: center; }
+    .signup-form button { width: 100%; padding: 16px; }
+    .cta.secondary { margin-left: 0; margin-top: 12px; }
+    footer { flex-direction: column; text-align: center; }
+    .socials a { margin: 0 10px; }
+  }
+</style>
+</head>
+<body data-density="tight" data-card-style="thin">
+
+<nav>
+  <div class="logo">film<span class="italic">house.</span></div>
+  <div class="nav-links">
+    <a href="#screening">Next Screening</a>
+    <a href="#about">About</a>
+    <a href="#signup" hidden>Updates</a>
+  </div>
+</nav>
+
+<header class="hero">
+<h1>film<span class="italic">house.</span></h1>
+  <p class="hero-tag" style="font-size: 29px; font-weight: 400">Come Watch Together.</p>
+</header>
+
+<!-- ---------- NEXT SCREENING ---------- -->
+<section id="screening">
+  <div class="container">
+    <div class="screening">
+      <div class="poster">
+        <img src="EP_Tuner_Cineplex_1080x1350.jpg" alt="Official poster for Tuner (2026), directed by Daniel Roher">
+      </div>
+
+      <div class="screening-info">
+        <span class="eyebrow">Next screening</span>
+        <div class="event-date">Saturday, <em>June 6</em></div>
+        <div class="event-venue">Nitehawk Cinema · Williamsburg</div>
+        <p class="event-note">Please plan for a late morning / early afternoon screening.<br>Food, cocktails, and mocktails available during the screening and at the theater café after.</p>
+        <p class="ticket-line">Ticket purchase link &amp; showtime released <strong>Tuesday, June 2 at 10:00am</strong>.</p>
+
+        <hr class="divider">
+
+        <h3 class="film-title">Tuner</h3>
+        <div class="ratings">
+          <a class="rating" href="https://www.rottentomatoes.com/m/tuner" target="_blank" rel="noopener noreferrer" aria-label="Rotten Tomatoes score for Tuner: 94 percent (opens in new tab)">
+            <img class="rating-logo" src="rt-logo.svg" alt="" aria-hidden="true">
+            <span class="score">94%</span>
+            <span class="src" aria-hidden="true">Rotten Tomatoes</span>
+            <span class="ext" aria-hidden="true">↗</span>
+          </a>
+          <a class="rating" href="https://letterboxd.com/film/tuner/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd rating for Tuner: 3.7 out of 5 (opens in new tab)">
+            <img class="rating-logo" src="letterboxd-logo.svg" alt="" aria-hidden="true">
+            <span class="score">3.7</span>
+            <span class="src" aria-hidden="true">Letterboxd</span>
+            <span class="ext" aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <p class="synopsis">A gifted piano tuner discovers that the same precision and sensitivity he uses to tune pianos also make him uniquely skilled at cracking safes, sending his life in a dangerous and unexpected direction.</p>
+
+        <div class="credits">
+          <p><span class="label" style="font-size: 13px">Starring:</span>Leo Woodall, Havana Rose Liu, Lior Raz, with Jean Reno &amp; Dustin Hoffman</p>
+          <p><span class="label" style="font-size: 13px">Written by:</span>Daniel Roher &amp; Robert Ramsey</p>
+          <p><span class="label" style="font-size: 13px">Directed by:</span>Daniel Roher</p>
+        </div>
+
+        <a href="#signup" class="cta" hidden>Get notified when tickets drop →</a>
+      </div>
+    </div>
+
+    <div class="trailer-wrap">
+      <div class="trailer-head">
+        <h3>Watch the <em>trailer.</em></h3>
+      </div>
+      <div class="trailer">
+        <iframe src="https://player.vimeo.com/video/1178842512" title="Tuner — Official Trailer (2026)" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- ABOUT ---------- -->
+<section id="about" style="background: var(--mint); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);">
+  <div class="container">
+    <span class="eyebrow" style="background: var(--ink); color: var(--cream);">Manifesto</span>
+    <h2>Watching, <em>together</em></h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>We love watching films together. In the dark. With friends. With strangers. On a big screen.</p>
+        <p>Somewhere along the way, convenience won. Streaming. Scrolling. “I’ll catch it later.” And later never comes.</p>
+        <p>So once a month, we throw it out.</p>
+        <p>One film. No algorithm. No second screen. No half-watching.</p>
+        <p>After the credits&hellip; stay. Drink. Eat. Agree. Disagree. Declare cinema dead. Or fall back in love with it again.</p>
+        <p>Join a community of creatives, nerds, cat lovers, insomniacs, vinyl collectors, overthinkers, romantics, and people who still believe a dark theater can change your life.</p>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar p1">
+          <h4>One film, once a month.</h4>
+          <p>A late morning / early afternoon screening. Start the weekend right with great cinema, beautiful humans, and conversations that linger.</p>
+        </div>
+        <div class="pillar p2">
+          <h4>Real screens, real rooms.</h4>
+          <p>Meet in classic, independent cinemas with proper projection. Phones away. Laptops closed.</p>
+        </div>
+        <div class="pillar p3">
+          <h4>The Film Ends. The Conversation Doesn&rsquo;t.</h4>
+          <p>Stay after the film for conversation. Bring a thought, a question, or just your beautiful self.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- SIGNUP (hidden until email service is integrated) ---------- -->
+<section id="signup" class="signup" hidden>
+  <span class="star s1">✦</span>
+  <span class="star s2">✦</span>
+  <span class="star s3">✦</span>
+
+  <span class="eyebrow" style="background: var(--yellow); color: var(--ink);">Updates</span>
+  <h2>Hear about the next <em>screening</em>.</h2>
+  <p>Leave your email and we'll let you know 
+what's playing, when, and where to get a ticket.</p>
+
+  <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks — you\'re on the list';">
+    <input type="email" required="" placeholder="your@email.com" aria-label="Email address">
+    <button type="submit">Send me updates</button>
+  </form>
+  <p class="signup-note">
+</p>
+</section>
+
+<footer>
+  <div class="logo">film<span class="italic">house.</span></div>
+  <div class="socials">
+    <a href="https://letterboxd.com/jungleejai/list/filmhouse/" target="_blank" rel="noopener noreferrer"><img src="letterboxd-logo.svg" alt="" aria-hidden="true">Letterboxd</a>
+  </div>
+  <div class="copy">© 2026 Filmhouse · Made with <span style="color: rgb(255, 61, 128)">♥</span> in Brooklyn</div>
+</footer>
+
+</body></html>
