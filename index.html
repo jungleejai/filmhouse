@@ -49,6 +49,37 @@
     z-index: 0;
   }
 
+  /* ---------- ALERT BANNER ---------- */
+  .alert-banner {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 13px 32px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.55;
+    position: relative;
+    z-index: 40;
+  }
+  .alert-banner .label {
+    background: var(--yellow);
+    color: var(--ink);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+  .alert-banner a {
+    color: var(--yellow);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  .alert-banner a:hover { text-decoration-thickness: 2px; }
+
   /* ---------- NAV ---------- */
   nav {
     position: sticky; top: 0; z-index: 50;
@@ -278,49 +309,9 @@
     color: var(--yellow);
     text-transform: lowercase;
   }
-  .event-note {
-    font-size: 17px;
-    line-height: 1.5;
-    opacity: 0.85;
-    margin-bottom: 14px;
+  .ticket-cta {
+    margin: 4px 0 6px;
   }
-  .event-note a {
-    color: var(--yellow);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-    transition: color 0.15s ease;
-  }
-  .event-note a:hover { color: var(--cream); }
-  .event-aside {
-    font-family: 'Source Serif 4', 'Fraunces', serif;
-    font-style: italic;
-    font-size: 14px;
-    line-height: 1.5;
-    opacity: 0.65;
-    margin-bottom: 22px;
-  }
-  .ticket-line {
-    display: block;
-    background: rgba(251,243,223,0.08);
-    border-left: 3px solid var(--yellow);
-    padding: 14px 18px;
-    font-size: 15px;
-    line-height: 1.4;
-    margin-bottom: 28px;
-    border-radius: 0 8px 8px 0;
-  }
-  .ticket-label {
-    font-family: 'Source Serif 4', 'Fraunces', serif;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 18px;
-    color: var(--yellow);
-    margin-bottom: 4px;
-    text-transform: lowercase;
-    letter-spacing: -0.005em;
-  }
-  .ticket-detail { font-size: 14px; line-height: 1.45; opacity: 0.88; }
   .divider {
     height: 1px;
     background: rgba(251,243,223,0.25);
@@ -586,6 +577,10 @@
 </head>
 <body data-density="tight" data-card-style="thin">
 
+<div class="alert-banner">
+  🎬 <span class="label">New theater alert</span>Our June 6 screening has moved from Nitehawk to BAM KBH Cinemas (10 Lafayette Ave, Brooklyn). Post-film conversation, tacos, and margaritas at <a href="https://maps.app.goo.gl/uXg5RWnsHzabDepf9" target="_blank" rel="noopener noreferrer">Tacombi</a> directly across the street.
+</div>
+
 <nav>
   <div class="logo">film<span class="italic">house.</span></div>
   <div class="nav-links">
@@ -618,14 +613,9 @@
       </div>
 
       <div class="screening-info">
-        <div class="event-date">Saturday, <em>June&nbsp;6</em></div>
-        <div class="event-venue">BAM · Fort Greene</div>
-        <p class="event-note">Please plan for a late morning / early afternoon screening at the Brooklyn Academy of Music's beautiful new theater. There's no food inside &mdash; but we'll head across the street to <a href="https://maps.app.goo.gl/uXg5RWnsHzabDepf9" target="_blank" rel="noopener noreferrer">Tacombi</a> for margs and tacos after the credits.</p>
-        <p class="event-aside">A small reshuffle &mdash; Tuner isn't playing at Nitehawk after all. Apologies while we work through some programming kinks.</p>
-        <div class="ticket-line">
-          <div class="ticket-label">Buy your ticket here:</div>
-          <div class="ticket-detail">Ticket purchase link &amp; showtime released <strong>Tuesday, June 2 at 5:00pm</strong>.</div>
-        </div>
+        <div class="event-date">Saturday, <em>June&nbsp;6</em> &mdash; 1:30pm</div>
+        <div class="event-venue">BAM Rose Cinemas at BAM KBH | Fort Greene, Brooklyn</div>
+        <a class="cta ticket-cta" href="https://commerce.bam.org/booking/production/bestavailable/56113" target="_blank" rel="noopener noreferrer">Click Here To Buy Your Ticket &rarr;</a>
 
         <hr class="divider">
 
