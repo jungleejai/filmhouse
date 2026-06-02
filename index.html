@@ -49,6 +49,14 @@
     z-index: 0;
   }
 
+  /* ---------- STICKY TOP STACK (banner + nav) ---------- */
+  .top-stack {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--cream);
+  }
+
   /* ---------- ALERT BANNER ---------- */
   .alert-banner {
     background: var(--ink);
@@ -57,8 +65,6 @@
     text-align: center;
     font-size: 14px;
     line-height: 1.55;
-    position: relative;
-    z-index: 40;
   }
   .alert-banner .label {
     background: var(--yellow);
@@ -82,7 +88,6 @@
 
   /* ---------- NAV ---------- */
   nav {
-    position: sticky; top: 0; z-index: 50;
     background: var(--cream);
     border-bottom: var(--nav-border-weight) solid var(--nav-border-color);
     padding: 14px 32px;
@@ -585,6 +590,7 @@
 </head>
 <body data-density="tight" data-card-style="thin">
 
+<div class="top-stack">
 <div class="alert-banner">
   🎬 <span class="label">New theater alert</span>Our June 6 screening has moved from Nitehawk to BAM KBH Cinemas (10 Lafayette Ave, Brooklyn). Post-film conversation, tacos, and margaritas at <a href="https://maps.app.goo.gl/uXg5RWnsHzabDepf9" target="_blank" rel="noopener noreferrer">Tacombi</a> directly across the street.
 </div>
@@ -597,6 +603,7 @@
     <a href="#signup" hidden>Updates</a>
   </div>
 </nav>
+</div>
 
 <header class="hero">
 <h1>film<span class="italic">house.</span></h1>
