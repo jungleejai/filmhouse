@@ -309,6 +309,14 @@
     color: var(--yellow);
     text-transform: lowercase;
   }
+  .event-venue a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: opacity 0.15s ease;
+  }
+  .event-venue a:hover { opacity: 0.75; }
   .ticket-cta {
     margin: 4px 0 6px;
   }
@@ -614,7 +622,7 @@
 
       <div class="screening-info">
         <div class="event-date">Saturday, <em>June&nbsp;6</em> &mdash; 1:30pm</div>
-        <div class="event-venue">BAM Rose Cinemas at BAM KBH | Fort Greene, Brooklyn</div>
+        <div class="event-venue"><a href="https://maps.app.goo.gl/GjPt3EkDF2T5qN8e8" target="_blank" rel="noopener noreferrer">BAM Rose Cinemas at BAM KBH</a> | Fort Greene, Brooklyn</div>
         <a class="cta ticket-cta" href="https://commerce.bam.org/booking/production/bestavailable/56113" target="_blank" rel="noopener noreferrer">Click Here To Buy Your Ticket &rarr;</a>
 
         <hr class="divider">
