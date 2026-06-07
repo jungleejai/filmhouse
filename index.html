@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Filmhouse</title>
-<meta name="description" content="Filmhouse · Next screening: Tuner, Saturday June 6 at Nitehawk Cinema, Williamsburg. Tickets released Tuesday, June 2 at 5:00pm.">
+<meta name="description" content="Filmhouse · Next screening: The Odyssey, Saturday July 18 at 10:30am, Village East by Angelika, East Village, Manhattan.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&amp;family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
@@ -85,12 +85,18 @@
   /* ---------- HERO ---------- */
   .hero {
     position: relative;
-    padding: 80px 32px 64px;
+    padding: 80px 32px 40px;
     text-align: center;
     overflow: hidden;
-    background: var(--lilac);
-    border-bottom: 2px solid var(--ink);
   }
+
+  /* ---------- WELCOME BLOCK (holds the manifesto) ---------- */
+  .welcome-block {
+    padding: 24px 32px 40px;
+    position: relative;
+    z-index: 2;
+  }
+  .welcome-block .hero-welcome { margin-top: 0; }
   .hero h1 {
     font-family: 'Source Serif 4', 'Fraunces', serif;
     font-weight: 700;
@@ -195,6 +201,7 @@
   /* ---------- SECTION BASE ---------- */
   section { position: relative; z-index: 2; padding: 80px 32px; }
   section#screening { padding-top: 18px; }
+  section#about { padding: 48px 32px 56px; }
   .container { max-width: 1100px; margin: 0 auto; }
   .eyebrow {
     display: inline-block;
@@ -411,7 +418,7 @@
   .signup {
     background: var(--ink);
     color: var(--cream);
-    padding: 80px 32px;
+    padding: 48px 32px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -576,16 +583,18 @@
 <header class="hero">
 <h1>film<span class="italic">house.</span></h1>
   <p class="hero-tag" style="font-size: 26px; font-weight: 400">Come Watch Together.</p>
+</header>
 
+<section class="welcome-block">
   <div class="hero-welcome manifesto">
-    <h3 class="sub-head">welcome to <em>filmhouse.</em></h3>
+    <h3 class="sub-head">one film. once a <em>month.</em></h3>
     <p>We love watching films. In the dark. With friends. With strangers. On a big screen.</p>
     <p>Somewhere along the way we got lost in streaming. Scrolling. &ldquo;I&rsquo;ll catch it later.&rdquo; So once a month, we do things differently.</p>
     <p>One film. No algorithm. No second screen. No half-watching.</p>
     <p>And after&hellip;we drink. Eat. Agree. Disagree. Declare cinema dead. Or fall back in love with it again.</p>
     <p>Join a community of creatives, nerds, cat lovers, insomniacs, vinyl collectors, overthinkers, romantics, and people who still believe a dark theater can change your life. <strong>Welcome to filmhouse.</strong></p>
   </div>
-</header>
+</section>
 
 <!-- ---------- NEXT SCREENING ---------- -->
 <section id="screening">
@@ -593,37 +602,35 @@
     <h3 class="sub-head">next <em>screening.</em></h3>
     <div class="screening">
       <div class="poster">
-        <img src="EP_Tuner_Cineplex_1080x1350.jpg" alt="Official poster for Tuner (2026), directed by Daniel Roher">
+        <img src="Movie Posters/official-poster-for-christopher-nolans-the-odyssey-v0-tlkskrlp9z7g1.webp" alt="Official poster for The Odyssey (2026), directed by Christopher Nolan">
       </div>
 
       <div class="screening-info">
-        <div class="event-date">Saturday, <em>June&nbsp;6</em> &mdash; 1:30pm</div>
-        <div class="event-venue"><a href="https://maps.app.goo.gl/GjPt3EkDF2T5qN8e8" target="_blank" rel="noopener noreferrer">BAM Rose Cinemas at BAM KBH</a> | Fort Greene, Brooklyn</div>
-        <a class="cta ticket-cta" href="https://commerce.bam.org/booking/production/bestavailable/56113" target="_blank" rel="noopener noreferrer">Click Here To Buy Your Ticket &rarr;</a>
+        <div class="event-date">Saturday, <em>July&nbsp;18</em> &mdash; 10:30am</div>
+        <div class="event-venue"><a href="https://maps.app.goo.gl/v7ez8BYZqtTTRhKJ6" target="_blank" rel="noopener noreferrer">Village East by Angelika</a> | East Village, Manhattan</div>
+        <a class="cta ticket-cta" href="https://fandango.queue-it.net/?c=fandango&amp;e=prododyssey26catcall&amp;ver=v3-javascript-3.7.10&amp;cver=209&amp;man=PROD%20-%20Catch%20All%20-%20Odyssey2026&amp;t=https%3A%2F%2Ftickets.fandango.com%2FMobileExpress%2FCheckout%3Ftid%3Daaecf%26mid%3D245895%26chainCode%3DAFC%26sdate%3D2026-07-18%252010%253A30%26row_count%3D550123859%26cookies%3D%257B%2522source%2522%3A%2522Desktop%2522%2C%2522enable_popup_bridge%2522%3A%2522true%2522%2C%2522pcontext%2522%3A%2522aaecf%2C245895%2522%2C%2522devicefamily%2522%3A%2522webbrowser%2522%257D&amp;kupver=akamai-3.0.8" target="_blank" rel="noopener noreferrer">Click Here To Buy Your Ticket &rarr;</a>
 
         <hr class="divider">
 
-        <h3 class="film-title">Tuner</h3>
+        <h3 class="film-title">The Odyssey</h3>
         <div class="ratings">
-          <a class="rating" href="https://www.rottentomatoes.com/m/tuner" target="_blank" rel="noopener noreferrer" aria-label="Rotten Tomatoes score for Tuner: 95 percent (opens in new tab)">
+          <a class="rating" href="https://www.rottentomatoes.com/m/the_odyssey_2026" target="_blank" rel="noopener noreferrer" aria-label="The Odyssey on Rotten Tomatoes (opens in new tab)">
             <img class="rating-logo" src="rt-logo.svg" alt="" aria-hidden="true">
-            <span class="score">95%</span>
             <span class="src" aria-hidden="true">Rotten Tomatoes</span>
             <span class="ext" aria-hidden="true">↗</span>
           </a>
-          <a class="rating" href="https://letterboxd.com/film/tuner/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd rating for Tuner: 3.7 out of 5 (opens in new tab)">
+          <a class="rating" href="https://letterboxd.com/film/the-odyssey-2026/" target="_blank" rel="noopener noreferrer" aria-label="The Odyssey on Letterboxd (opens in new tab)">
             <img class="rating-logo" src="letterboxd-logo.svg" alt="" aria-hidden="true">
-            <span class="score">3.7</span>
             <span class="src" aria-hidden="true">Letterboxd</span>
             <span class="ext" aria-hidden="true">↗</span>
           </a>
         </div>
-        <p class="synopsis">A gifted piano tuner discovers that the same precision and sensitivity he uses to tune pianos also make him uniquely skilled at cracking safes, sending his life in a dangerous and unexpected direction.</p>
+        <p class="synopsis">Odysseus, king of Ithaca, embarks on a perilous journey to return home after the Trojan War.</p>
 
         <div class="credits">
-          <p><span class="label" style="font-size: 13px">Starring:</span>Leo Woodall, Havana Rose Liu, Lior Raz, with Jean Reno &amp; Dustin Hoffman</p>
-          <p><span class="label" style="font-size: 13px">Written by:</span>Daniel Roher &amp; Robert Ramsey</p>
-          <p><span class="label" style="font-size: 13px">Directed by:</span>Daniel Roher</p>
+          <p><span class="label" style="font-size: 13px">Starring:</span>Matt Damon, Tom Holland, Anne Hathaway, Robert Pattinson, Lupita Nyong&rsquo;o, Zendaya, Charlize Theron</p>
+          <p><span class="label" style="font-size: 13px">Written by:</span>Christopher Nolan, Homer</p>
+          <p><span class="label" style="font-size: 13px">Directed by:</span>Christopher Nolan</p>
         </div>
 
         <a href="#signup" class="cta" hidden>Get notified when tickets drop →</a>
@@ -636,14 +643,14 @@
         <span class="note">Caution. The trailer reveals far too much.</span>
       </div>
       <div class="trailer">
-        <iframe src="https://player.vimeo.com/video/1178842512" title="Tuner — Official Trailer (2026)" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <iframe src="https://www.youtube.com/embed/Mzw2ttJD2qQ?si=edLNcjHvYSF_7yEG" title="The Odyssey — Official Trailer (2026)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ---------- THREE PILLARS ---------- -->
-<section id="about" style="background: var(--mint); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);">
+<section id="about" style="background: var(--mint);">
   <div class="container">
     <h3 class="sub-head">how we <em>roll.</em></h3>
     <div class="pillars">
