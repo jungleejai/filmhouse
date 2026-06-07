@@ -49,45 +49,9 @@
     z-index: 0;
   }
 
-  /* ---------- STICKY TOP STACK (banner + nav) ---------- */
-  .top-stack {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: var(--cream);
-  }
-
-  /* ---------- ALERT BANNER ---------- */
-  .alert-banner {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 13px 32px;
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.55;
-  }
-  .alert-banner .label {
-    background: var(--yellow);
-    color: var(--ink);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 11px;
-    padding: 3px 9px;
-    border-radius: 999px;
-    margin-right: 8px;
-    white-space: nowrap;
-  }
-  .alert-banner a {
-    color: var(--yellow);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-  }
-  .alert-banner a:hover { text-decoration-thickness: 2px; }
-
   /* ---------- NAV ---------- */
   nav {
+    position: sticky; top: 0; z-index: 50;
     background: var(--cream);
     border-bottom: var(--nav-border-weight) solid var(--nav-border-color);
     padding: 14px 32px;
@@ -121,9 +85,11 @@
   /* ---------- HERO ---------- */
   .hero {
     position: relative;
-    padding: 80px 32px 16px;
+    padding: 80px 32px 64px;
     text-align: center;
     overflow: hidden;
+    background: var(--lilac);
+    border-bottom: 2px solid var(--ink);
   }
   .hero h1 {
     font-family: 'Source Serif 4', 'Fraunces', serif;
@@ -507,17 +473,6 @@
     color: var(--yellow);
   }
 
-  /* decorative stars in signup */
-  .star {
-    position: absolute;
-    font-family: 'Fraunces', serif;
-    font-size: 40px;
-    color: var(--yellow);
-    opacity: 0.3;
-  }
-  .star.s1 { top: 30px; left: 8%; transform: rotate(-15deg); }
-  .star.s2 { bottom: 40px; right: 10%; transform: rotate(20deg); font-size: 60px; color: var(--pink); }
-  .star.s3 { top: 50%; left: 4%; font-size: 30px; color: var(--mint); }
 
   /* ---------- FOOTER ---------- */
   footer {
@@ -609,11 +564,6 @@
 </head>
 <body data-density="tight" data-card-style="thin">
 
-<div class="top-stack">
-<div class="alert-banner">
-  🎬 <span class="label">New theater alert</span>Our June 6 screening has moved from Nitehawk to BAM KBH Cinemas (10 Lafayette Ave, Brooklyn). Post-film conversation, tacos, and margaritas at <a href="https://maps.app.goo.gl/uXg5RWnsHzabDepf9" target="_blank" rel="noopener noreferrer">Tacombi</a> directly across the street.
-</div>
-
 <nav>
   <div class="logo">film<span class="italic">house.</span></div>
   <div class="nav-links">
@@ -622,13 +572,13 @@
     <a href="#signup">Updates</a>
   </div>
 </nav>
-</div>
 
 <header class="hero">
 <h1>film<span class="italic">house.</span></h1>
   <p class="hero-tag" style="font-size: 26px; font-weight: 400">Come Watch Together.</p>
 
   <div class="hero-welcome manifesto">
+    <h3 class="sub-head">welcome to <em>filmhouse.</em></h3>
     <p>We love watching films. In the dark. With friends. With strangers. On a big screen.</p>
     <p>Somewhere along the way we got lost in streaming. Scrolling. &ldquo;I&rsquo;ll catch it later.&rdquo; So once a month, we do things differently.</p>
     <p>One film. No algorithm. No second screen. No half-watching.</p>
@@ -715,10 +665,6 @@
 
 <!-- ---------- SIGNUP (hidden until email service is integrated) ---------- -->
 <section id="signup" class="signup">
-  <span class="star s1">✦</span>
-  <span class="star s2">✦</span>
-  <span class="star s3">✦</span>
-
   <span class="eyebrow" style="background: var(--yellow); color: var(--ink);">Updates</span>
   <h2>See you at the <em>movies.</em></h2>
   <p>Leave your email and we'll let you know what's playing next, when tickets go on sale, and where the conversation continues after the credits.</p>
