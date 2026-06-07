@@ -251,6 +251,17 @@
     position: relative;
   }
   /* (no top nudge needed now that the eyebrow above the date is gone) */
+  .filmhouse-issue {
+    font-family: 'Source Serif 4', 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    color: var(--yellow);
+    opacity: 1;
+    margin-bottom: 14px;
+    text-transform: lowercase;
+  }
   .poster {
     aspect-ratio: 1080 / 1350;
     border-radius: 12px;
@@ -309,11 +320,11 @@
   }
   .ticket-alert {
     font-family: 'Source Serif 4', 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 400;
     font-size: 15px;
     line-height: 1.5;
-    color: var(--yellow);
+    color: var(--cream);
     margin-top: 12px;
     margin-bottom: 18px;
     max-width: 460px;
@@ -626,11 +637,12 @@
       </div>
 
       <div class="screening-info">
+        <div class="filmhouse-issue">filmhouse &numero; 02</div>
         <div class="event-date">Saturday, <em>July&nbsp;25</em> &mdash; 10:00am</div>
         <div class="event-venue"><a href="https://maps.app.goo.gl/hYiHfmphhccPqQnr8" target="_blank" rel="noopener noreferrer">Alamo Drafthouse</a> | Downtown Brooklyn</div>
         <p class="venue-note">Food and drink available for purchase in the theater.</p>
         <a class="cta ticket-cta" href="https://tickets.fandango.com/mobileexpress/seatselection?row_count=550140054&amp;mid=245895&amp;chainCode=ALAM&amp;sdate=2026-07-25+10%3A00&amp;tid=aaxun&amp;route=map-seat-map" target="_blank" rel="noopener noreferrer">Click Here To Buy Your Ticket &rarr;</a>
-        <p class="ticket-alert">Note: due to the popularity of the film, tickets are selling out quickly. Suggest purchasing your ticket as early as possible.</p>
+        <p class="ticket-alert">Tickets are selling quickly. Buy early.</p>
 
         <hr class="divider">
 
